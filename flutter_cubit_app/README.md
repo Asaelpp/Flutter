@@ -1,16 +1,14 @@
-# flutter_cubit
+# flutter_travel_app
 
-A new Flutter project.
+Um novo projeto, construindo um app de viagens
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Esse projeto foi inspirado em um já existente
 
-A few resources to get you started if this is your first Flutter project:
+Devidos créditos à: 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [dbestech](https://www.youtube.com/c/dbestech)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para qualquer ajuda quanto ao entendimento da linguagem:
+[online documentation](https://flutter.dev/docs)
