@@ -36,6 +36,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // Coluna para criação da página inicial
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -64,6 +65,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         )
                       ],
                     ),
+                    //coluna para criação do scroll dinâmico
                     Column(
                       children: List.generate(3, (indexDots) {
                         return Container(
