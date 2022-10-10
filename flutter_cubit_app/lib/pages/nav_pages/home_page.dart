@@ -11,9 +11,10 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       body: Column(
         //coloca o texto "Discover" no início da página
@@ -58,6 +59,7 @@ class _HomePageState extends State<HomePage> {
           //TabBar
           Container(
             child: TabBar(
+              controller: _tabController,
               tabs: [
                 Tab(
                   text: "Places",
@@ -72,7 +74,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
+            height: 300,
+            width: double.maxFinite,
             child: TabBarView(
+              controller: _tabController,
               children: [Text("Hi"), Text("There"), Text("Bye")],
             ),
           )
