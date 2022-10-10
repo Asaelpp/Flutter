@@ -72,13 +72,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     CircleTabIndicator(color: AppColors.mainColor, radius: 4),
                 tabs: [
                   Tab(
-                    text: "Places",
+                    text: "Lugares",
                   ),
                   Tab(
-                    text: "Inspirations",
+                    text: "Inspirações",
                   ),
                   Tab(
-                    text: "Emotions",
+                    text: "Emoções",
                   )
                 ],
               ),
@@ -121,7 +121,8 @@ class _CirclePainter extends BoxPainter {
     Paint _paint = Paint();
     _paint.color = color;
     _paint.isAntiAlias = true;
-    final Offset circleOffset = Offset(configuration.size!.width / 2, 0);
+    final Offset circleOffset = Offset(
+        configuration.size!.width / 2 - radius / 2, configuration.size!.height);
     canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
 }
