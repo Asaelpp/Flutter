@@ -98,6 +98,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 }
 
+//Criação de classe que chama o indicador circular
 class CircleTabIndicator extends Decoration {
   final Color color;
   double radius;
@@ -109,6 +110,7 @@ class CircleTabIndicator extends Decoration {
   }
 }
 
+//indicador circular
 class _CirclePainter extends BoxPainter {
   final Color color;
   double radius;
