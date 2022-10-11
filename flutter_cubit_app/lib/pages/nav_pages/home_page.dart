@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_cubit/misc/colors.dart';
+import 'package:flutter_cubit/widgets/app-text.dart';
 import 'package:flutter_cubit/widgets/app_large_text.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         children: [
           //Contém o menu de hamburguer e o Icone, sendo uma NAVBAR
           Container(
-            padding: const EdgeInsets.only(top: 70, left: 20),
+            padding: const EdgeInsets.only(top: 40, left: 20),
             child: Row(
               children: [
                 Icon(
@@ -84,14 +85,59 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
           ),
+          //contém as imagens abaixo da tabBar
           Container(
-            height: 300,
+            padding: const EdgeInsets.only(left: 20, top: 20),
+            height: 350,
             width: double.maxFinite,
             child: TabBarView(
               controller: _tabController,
-              children: [Text("Hi"), Text("There"), Text("Bye")],
+              children: [
+                ListView.builder(
+                  itemCount: 3,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    //decoração da caixa de imagem
+                    return Container(
+                      margin: const EdgeInsets.only(right: 15),
+                      width: 200,
+                      height: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        image: DecorationImage(
+                            image: AssetImage("img/mountain.jpeg"),
+                            fit: BoxFit.cover),
+                      ),
+                    );
+                  },
+                ),
+                Text("There"),
+                Text("Bye")
+              ],
             ),
-          )
+          ),
+          //espaço entre o carrosel de imagens e o texto abaixo
+          SizedBox(
+            height: 30,
+          ),
+          //aqui começa o explorar mais
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLargeText(
+                  text: "Explore mais",
+                  size: 22,
+                ),
+                AppText(
+                  text: "Veja tudo",
+                  color: AppColors.textColor1,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
