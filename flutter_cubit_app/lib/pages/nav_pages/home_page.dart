@@ -112,8 +112,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     );
                   },
                 ),
-                Text("There"),
-                Text("Bye")
+                Text("Teste1"),
+                Text("Teste2")
               ],
             ),
           ),

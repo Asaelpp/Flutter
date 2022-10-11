@@ -41,11 +41,11 @@ class _MainPageState extends State<MainPage> {
         showUnselectedLabels: false,
         elevation: 0,
         items: [
-          BottomNavigationBarItem(label: "Home", icon: Icon(Icons.apps)),
+          BottomNavigationBarItem(label: "Menu", icon: Icon(Icons.apps)),
           BottomNavigationBarItem(
               label: "Bar", icon: Icon(Icons.bar_chart_sharp)),
-          BottomNavigationBarItem(label: "Search", icon: Icon(Icons.search)),
-          BottomNavigationBarItem(label: "My", icon: Icon(Icons.person)),
+          BottomNavigationBarItem(label: "Pesquisa", icon: Icon(Icons.search)),
+          BottomNavigationBarItem(label: "Eu", icon: Icon(Icons.person)),
         ],
       ),
     );
