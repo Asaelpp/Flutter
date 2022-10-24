@@ -16,10 +16,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   //lista de imagens para o scroll horizontal
   var images = {
-    "balloning.png": "Balloning",
-    "hiking.png": "Hiking",
-    "kayaking.png": "Kayaking",
-    "snorkling.png": "Snorkling",
+    "balloning.png": "Balonismo",
+    "hiking.png": "Trilhas",
+    "kayaking.png": "Caiaque",
+    "snorkling.png": "Mergulho",
   };
 
   @override
