@@ -14,6 +14,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  //lista de imagens para o scroll horizontal
+  var images = {
+    "balloning.png": "Balloning",
+    "hiking.png": "Hiking",
+    "kayaking.png": "Kayaking",
+    "snorkling.png": "Snorkling",
+  };
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -25,7 +33,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         children: [
           //Contém o menu de hamburguer e o Icone, sendo uma NAVBAR
           Container(
-            padding: const EdgeInsets.only(top: 40, left: 20),
+            padding: const EdgeInsets.only(top: 30, left: 20),
             child: Row(
               children: [
                 Icon(
@@ -47,7 +55,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
           //Cria um espaço para inserir o texto
           SizedBox(
-            height: 40,
+            height: 10,
           ),
           //Cria um container para inserção de dados, no caso o texto
           Container(
@@ -138,6 +146,51 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
+          SizedBox(
+            height: 10,
+          ),
+          //Colunas horizontais do explorar mais
+          Container(
+            height: 120,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 4,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: const EdgeInsets.only(right: 30),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'img/' + images.keys.elementAt(index)),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      //contem os textos abaixo dos íncones
+                      Container(
+                        child: AppText(
+                          text: images.values.elementAt(index),
+                          color: AppColors.textColor2,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     );
