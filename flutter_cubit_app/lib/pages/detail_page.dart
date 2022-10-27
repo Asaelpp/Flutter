@@ -1,8 +1,13 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_cubit/misc/colors.dart';
+import 'package:flutter_cubit/widgets/app-text.dart';
+import 'package:flutter_cubit/widgets/app_buttons.dart';
+import 'package:flutter_cubit/widgets/app_large_text.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -12,6 +17,7 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  int gottenStars = 4;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +55,123 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            //inserção de colunas para os textos informativos do local
+            Positioned(
+              top: 240,
+              //configuração do background informativo
+              child: Container(
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
+                width: MediaQuery.of(context).size.width,
+                height: 500,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(30),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //Título do local, junto com o preço
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        AppLargeText(
+                          text: "Yosemite",
+                          color: Colors.black87,
+                        ),
+                        AppLargeText(
+                          text: "R\$ 1250",
+                          color: AppColors.mainColor,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    //Subtítulo do local
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.location_on,
+                          color: AppColors.mainColor,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        AppText(
+                          text: "USA, Califórnia",
+                          color: AppColors.textColor1,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        //inserção das estrelas
+                        Wrap(
+                          children: List.generate(5, (index) {
+                            return Icon(
+                              Icons.star,
+                              color: index < gottenStars
+                                  ? AppColors.starColor
+                                  : AppColors.textColor2,
+                            );
+                          }),
+                        ),
+                        //espaço entre as estrelas e a classificação
+                        SizedBox(
+                          width: 10,
+                        ),
+                        //classificação texto
+                        AppText(
+                          text: "(4,0)",
+                          color: AppColors.textColor2,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    //Título pessoas
+                    AppLargeText(
+                      text: "Pessoas",
+                      color: Colors.black87,
+                      size: 20,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    //Subtítulo
+                    AppText(
+                      text: "Número de pessoas no seu grupo",
+                      color: AppColors.mainTextColor,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    //Botões abaixo do sub
+                    Wrap(
+                      children: List.generate(5, (index) {
+                        return Container(
+                          margin: const EdgeInsets.only(right: 10),
+                          child: AppButtons(
+                            size: 50,
+                            color: Colors.black,
+                            backgroundColor: AppColors.buttonBackground,
+                            borderColor: AppColors.buttonBackground,
+                            text: (index + 1).toString(),
+                          ),
+                        );
+                      }),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
