@@ -7,6 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_cubit/misc/colors.dart';
 import 'package:flutter_cubit/widgets/app-text.dart';
 import 'package:flutter_cubit/widgets/app_large_text.dart';
+import 'package:flutter_cubit/widgets/responsive_button.dart';
 
 import '../widgets/app_butons.dart';
 
@@ -185,24 +186,55 @@ class _DetailPageState extends State<DetailPage> {
                         );
                       }),
                     ),
+                    //espaço
                     SizedBox(
                       height: 20,
                     ),
+                    //Titulo: Descrição
                     AppLargeText(
                       text: "Descrição",
                       color: Colors.black87,
                       size: 20,
                     ),
+                    //espaço
                     SizedBox(
                       height: 5,
                     ),
+                    //Descrição em si
                     AppText(
-                        text:
-                            "Parque Nacional de Yosemite é localizado na área central de Sierra Nevada no estado norte-americano da Califórnia")
+                      text:
+                          "Parque Nacional de Yosemite é localizado na área central de Sierra Nevada no estado norte-americano da Califórnia",
+                    )
                   ],
                 ),
               ),
             ),
+            //
+            Positioned(
+              bottom: 20,
+              left: 20,
+              right: 20,
+              child: Row(
+                children: [
+                  //botão de favorito
+                  AppButtons(
+                    size: 60,
+                    color: AppColors.textColor1,
+                    backgroundColor: Colors.white,
+                    borderColor: AppColors.textColor1,
+                    isIcon: true,
+                    icon: Icons.favorite_border,
+                  ),
+                  //espaço entre o fav e o botão responsivo
+                  SizedBox(
+                    width: 20,
+                  ),
+                  ResponsiveButton(
+                    isResponsive: true,
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
